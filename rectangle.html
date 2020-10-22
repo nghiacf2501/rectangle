@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="400" height="200" style="border: 2px solid #000000"></canvas>
+<span id="sp1"></span>
+</body>
+</html>
+<script>
+    let c = document.getElementById("myCanvas");
+    let ctx= c.getContext("2d")
+    ctx.beginPath();
+    ctx.rect(90,40,200,90);
+    ctx.strokeStyle = "#000";
+    ctx.stroke();
+
+    let myRectangle = function (height, width){
+        this.height = height;
+        this.width = width;
+
+        this.getHeight = function (){
+            return height;
+        }
+        this.getWidth = function (){
+            return width;
+        }
+        this.getChuvi = function (){
+            return (height + width) * 2;
+        }
+        this.getDientich = function (){
+            return height * width;
+        }
+    }
+    let rectangle = new myRectangle(16,45);
+    let height = rectangle.getHeight();
+    let width = rectangle.getWidth();
+    let chuvi = rectangle.getChuvi();
+    let dientich = rectangle.getDientich();
+    alert("Chu vi : " + chuvi);
+    alert("Diện tích : " + dientich);
+</script>
